@@ -2,7 +2,7 @@
 
     getInitialState: function() {
         return {
-            data: [], value: {}
+            data: [], value: {}, showOutput: false
         }
     },
 
@@ -19,8 +19,7 @@
         return (
             <div onChange={this.changeHandler}>
                 <MySelectChange data={this.state.data}  />
-                <h3>Output</h3>
-                <MyOutputChange item={this.state.value}/>
+                { this.state.showOutput ? <MyOutputChange item={this.state.value}/> : null }
             </div>
         )
     },
@@ -28,6 +27,7 @@
     changeHandler: function(childComponent) {
         this.state.data.forEach(function(item) {
             if (parseInt(item.id) === parseInt(childComponent.target.value)) {
+                this.setState({ showOutput: item.id > 0 });
                 this.setState({ value : item});
             }
         }.bind(this));
@@ -39,7 +39,7 @@
 var MyOutputChange = React.createClass({
     
     render: function() {
-        return (<p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p>)
+        return (<div><h3>Output</h3><p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p></div>)
 
     }
 

@@ -9,6 +9,7 @@ namespace React.Test.Controllers
         {
             var model = new List<dynamic>
             {
+                new {id = 0, value = "select"},
                 new {id = 1, value = "one"},
                 new { id = 2, value = "two" },
                 new { id = 3, value = "three" },
