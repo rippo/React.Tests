@@ -2,7 +2,7 @@
 
     getInitialState: function() {
         return {
-            data: []
+            data: [], value: {}
         }
     },
 
@@ -17,22 +17,36 @@
 
     render: function() {
         return (
-            <MySelectChange 
-                data={this.state.data} />
+            <div onChange={this.changeHandler}>
+                <MySelectChange data={this.state.data}  />
+                <h3>Output</h3>
+                <MyOutputChange item={this.state.value}/>
+            </div>
         )
+    },
+
+    changeHandler: function(childComponent) {
+        this.state.data.forEach(function(item) {
+            if (parseInt(item.id) === parseInt(childComponent.target.value)) {
+                this.setState({ value : item});
+            }
+        }.bind(this));
     }
+
+});
+
+
+var MyOutputChange = React.createClass({
+    
+    render: function() {
+        return (<p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p>)
+
+    }
+
 });
 
 
 var MySelectChange = React.createClass({
-
-    getInitialState: function() {
-        return {value: ""};
-    },
-
-    changeHandler: function(e) {
-        this.setState({value: e.target.value});
-    },
 
     render: function() {
         var mySelectOptions = function(result) {
@@ -41,17 +55,11 @@ var MySelectChange = React.createClass({
                         data={result} />
             };
         return (
-            <div>
                 <select 
-                    onChange={this.changeHandler}
+                    //onChange={this.handleClick}
                     className="form-control">
                     {this.props.data.map(mySelectOptions)}
                 </select>
-                <h3>Ouput</h3>
-                <div className="content">
-                    {this.state.value}
-                </div>
-            </div>
             )
     }
 });
