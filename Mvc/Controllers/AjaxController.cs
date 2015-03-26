@@ -24,7 +24,7 @@ namespace React.Test.Controllers
         {
             var model = new List<dynamic>
             {
-                new {id = 20, lookupid = 0, value = "select"},
+                //new {id = 20, lookupid = 0, value = "select"},
                 new {id = 21, lookupid = 1, value = "one.1"},
                 new {id = 22, lookupid = 1, value = "one.2" },
                 new {id = 23, lookupid = 1, value = "one.3" },

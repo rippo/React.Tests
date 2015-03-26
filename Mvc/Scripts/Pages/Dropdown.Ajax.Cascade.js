@@ -40,7 +40,6 @@
                     this.setState({ showOutput: item.id > 0 });
                     this.setState({ value1: item });
 
-
                     $.get("/ajax/lookup2/" + item.id, function(result) {
                         this.setState({
                             data2: result
@@ -73,8 +72,8 @@ var MyOutputCascade = React.createClass({
         return (
             <div>
                 <h3>Output</h3>
-                <p>Id: <b>{this.props.item1.id}</b> Value: <b>{this.props.item1.value}</b></p>
-                <p>Id: <b>{this.props.item2.id}</b> Value: <b>{this.props.item2.value}</b></p>
+                {this.props.item1 ? <p>Id: <b>{this.props.item1.id}</b> Value: <b>{this.props.item1.value}</b></p> : null}
+                {this.props.item2 ? <p>Id: <b>{this.props.item2.id}</b> Value: <b>{this.props.item2.value}</b></p> : null}
             </div>
         )
     }
