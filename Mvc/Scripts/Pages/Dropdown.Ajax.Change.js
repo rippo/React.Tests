@@ -6,7 +6,6 @@
         }
     },
 
-
     componentDidMount: function() {
         $.get(this.props.source, function(result) {
             this.setState({
@@ -39,8 +38,10 @@
 var MyOutputChange = React.createClass({
     
     render: function() {
-        return (<div><h3>Output</h3><p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p></div>)
-
+        return (<div>
+                    <h3>Output</h3>
+                    <p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p>
+                </div>)
     }
 
 });
@@ -56,14 +57,12 @@ var MySelectChange = React.createClass({
             };
         return (
                 <select 
-                    //onChange={this.handleClick}
                     className="form-control">
                     {this.props.data.map(mySelectOptions)}
                 </select>
             )
     }
 });
-
 
 var MySelectOptionsChange = React.createClass({
     render: function() {
