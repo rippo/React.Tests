@@ -1,4 +1,4 @@
-﻿var MyParentChange = React.createClass({
+﻿var MyParentChangeAjax = React.createClass({
 
     getInitialState: function() {
         return {
@@ -17,41 +17,47 @@
     render: function() {
         return (
             <div onChange={this.changeHandler}>
-                <MySelectChange data={this.state.data}  />
-                { this.state.showOutput ? <MyOutputChange item={this.state.value}/> : null }
+                <MySelectChangeAjax data={this.state.data}  />
+                { this.state.showOutput ? <MyOutputChangeAjax item={this.state.value}/> : null }
             </div>
         )
     },
 
     changeHandler: function(e) {
-        this.state.data.forEach(function(item) {
-            if (parseInt(item.id) === parseInt(e.target.value)) {
-                this.setState({ showOutput: item.id > 0 });
-                this.setState({ value : item});
-            }
+
+        $.get("/ajax/AdditionalInfo/" + e.target.value, function(result) {
+            this.setState({ showOutput: true });
+            this.setState({ value: result });
+        }.bind(this))
+        .fail(function() {
+            this.setState({ showOutput: false });
         }.bind(this));
     }
 
 });
 
 
-var MyOutputChange = React.createClass({
+var MyOutputChangeAjax = React.createClass({
     
     render: function() {
         return (<div>
                     <h3>Output</h3>
-                    <p>Id: <b>{this.props.item.id}</b> Value: <b>{this.props.item.value}</b></p>
+                    <p>
+                        Id: <b>{this.props.item.id}</b> - 
+                        Drink: <b>{this.props.item.drink}</b> - 
+                        Container: <b>{this.props.item.container}</b>
+                    </p>
                 </div>)
     }
 
 });
 
 
-var MySelectChange = React.createClass({
+var MySelectChangeAjax = React.createClass({
 
     render: function() {
         var mySelectOptions = function(result) {
-            return <MySelectOptionsChange
+            return <MySelectOptionsChangeAjax
                         key={result.id} 
                         data={result} />
             };
@@ -64,7 +70,7 @@ var MySelectChange = React.createClass({
     }
 });
 
-var MySelectOptionsChange = React.createClass({
+var MySelectOptionsChangeAjax = React.createClass({
     render: function() {
         return <option value={this.props.data.id}>{this.props.data.value}</option>
     }
@@ -72,6 +78,6 @@ var MySelectOptionsChange = React.createClass({
 
 
 React.render(
-    <MyParentChange source="/ajax/lookup" />, 
-    document.getElementById('dropdownchange')
+    <MyParentChangeAjax source="/ajax/lookup" />, 
+    document.getElementById('dropdowngetjson')
 );

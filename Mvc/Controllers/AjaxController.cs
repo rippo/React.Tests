@@ -24,7 +24,6 @@ namespace React.Test.Controllers
         {
             var model = new List<dynamic>
             {
-                //new {id = 20, lookupid = 0, value = "select"},
                 new {id = 21, lookupid = 1, value = "one.1"},
                 new {id = 22, lookupid = 1, value = "one.2" },
                 new {id = 23, lookupid = 1, value = "one.3" },
@@ -35,6 +34,19 @@ namespace React.Test.Controllers
                 new {id = 28, lookupid = 4, value = "four.2" },
                 new {id = 29, lookupid = 4, value = "four.3" }
             }.Where(w=>w.lookupid == id);
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult AdditionalInfo(int id)
+        {
+            var model = new List<dynamic>
+            {
+                new {id = 41, lookupid = 1, drink = "coffee", container = "cup"},
+                new {id = 42, lookupid = 2, drink = "tea", container = "mug" },
+                new {id = 43, lookupid = 3, drink = "chocolate", container = "mug" },
+                new {id = 44, lookupid = 4, drink = "peppermint", container = "cup" },
+            }.FirstOrDefault(w => w.lookupid == id);
 
             return Json(model, JsonRequestBehavior.AllowGet);
         }

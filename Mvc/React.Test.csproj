@@ -114,6 +114,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -139,7 +140,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Pages\Dropdown.Ajax.Cascade.js" />
+    <Content Include="Scripts\Pages\Dropdown.Ajax.Change.Ajax.js" />
     <Content Include="Scripts\Pages\Dropdown.Ajax.Change.js" />
+    <Content Include="Scripts\Pages\Event.System.Counter.js" />
+    <Content Include="Scripts\Pages\Event.System.js" />
     <Content Include="Scripts\Pages\Dropdown.Ajax.Simple.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -157,6 +161,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Event\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
