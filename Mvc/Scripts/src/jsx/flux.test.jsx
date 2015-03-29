@@ -1,4 +1,4 @@
-/** McFly */
+﻿/** McFly */
 
 var Flux = new McFly();
 
@@ -40,7 +40,7 @@ function getState(){
 
 /** Controller View */
 
-var TodosController = React.createClass({displayName: "TodosController",
+var TodosController = React.createClass({
 	mixins: [TodoStore.mixin],
 	getInitialState: function(){
 		return getState();
@@ -49,26 +49,26 @@ var TodosController = React.createClass({displayName: "TodosController",
 		this.setState(getState());
 	},
 	render: function() {
-		return React.createElement(Todos, {todos: this.state.todos});
+		return <Todos todos={this.state.todos} />;
 	}
 });
 
 /** Component */
 
-var Todos = React.createClass({displayName: "Todos",
+var Todos = React.createClass({
 	addTodo: function(){
 		TodoActions.addTodo('test');
 	},
 	render: function() {
 		return (
-        React.createElement("div", {className: "todos_app"}, 
-            React.createElement("button", {className: "btn btn-primary", onClick: this.addTodo}, "Add Todo"), 
-            React.createElement("ul", {className: "todos"}, 
-                 this.props.todos.map(function(todo, index){
-                	return React.createElement("li", {key: index}, "Todo ", index)
-                })
-            )
-        )
+        <div className="todos_app">
+            <button className="btn btn-primary" onClick={this.addTodo}>Add Todo</button>
+            <ul className="todos">
+                { this.props.todos.map(function(todo, index){
+                	return <li key={index}>Todo {index}</li>
+                })}
+            </ul>
+        </div>
         )
     }
 });
@@ -76,7 +76,7 @@ var Todos = React.createClass({displayName: "Todos",
 
 
 
-var TodosRhs = React.createClass({displayName: "TodosRhs",
+var TodosRhs = React.createClass({
 	mixins: [TodoStore.mixin],
 	getInitialState: function(){
 		return getState();
@@ -85,10 +85,10 @@ var TodosRhs = React.createClass({displayName: "TodosRhs",
 		this.setState(getState());
 	},
 	render: function() {
-		return React.createElement(Todos, {todos: this.state.todos});
+		return <Todos todos={this.state.todos} />;
 	}
 });
 
  
-React.render(React.createElement(TodosController, null), document.getElementById("lhs"));
-React.render(React.createElement(TodosRhs, null), document.getElementById("rhs"));
+React.render(<TodosController />, document.getElementById("lhs"));
+React.render(<TodosRhs />, document.getElementById("rhs"));

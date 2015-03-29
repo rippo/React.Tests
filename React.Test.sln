@@ -5,6 +5,12 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "React.Test", "MVC\React.Test.csproj", "{38B2816F-9F8F-4906-A712-D8885142CB3E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{484AA989-FB80-4EB6-948C-4D406208BC9C}"
+	ProjectSection(SolutionItems) = preProject
+		GruntFile.js = GruntFile.js
+		package.json = package.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

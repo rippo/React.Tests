@@ -140,12 +140,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Pages\Dropdown.Ajax.Cascade.js" />
-    <Content Include="Scripts\Pages\Dropdown.Ajax.Change.Ajax.js" />
-    <Content Include="Scripts\Pages\Dropdown.Ajax.Change.js" />
-    <Content Include="Scripts\Pages\Event.System.Counter.js" />
+    <Content Include="Scripts\Pages\dropdown.ajax.js" />
+    <Content Include="Scripts\Pages\event.counter.js" />
     <Content Include="Scripts\Pages\Event.System.js" />
-    <Content Include="Scripts\Pages\Dropdown.Ajax.Simple.js" />
+    <Content Include="Scripts\Pages\flux.test.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -164,11 +162,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Flux\Index.cshtml" />
-    <Content Include="Scripts\Pages\flux.test.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\src\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -176,9 +174,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\Pages\Hello.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Pages\mcfly.js" />
