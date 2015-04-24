@@ -1,32 +1,32 @@
-﻿var MyParent = React.createClass({
+var MyParent = React.createClass({
 
     getInitialState: function() {
         return {
-            data: []
+            data: [],
         }
     },
 
     componentDidMount: function() {
         $.get(this.props.source, function(result) {
-            this.setState({
-                data: result
-            });
+            this.setState({ data: result});
         }.bind(this));
     },
 
     render: function() {
         return (
-            <MySelect data={this.state.data} />
+            <MySelect data={this.state.data} selected={this.props.selected} />
         )
     }
 });
 
 var MySelect = React.createClass({
     render: function() {
+        
         var mySelectOptions = function(result) {
             return <MySelectOptions key={result.id} data={result} />
-            };
-        return <select className="form-control">{this.props.data.map(mySelectOptions)}</select>
+        };
+
+        return <select value={this.props.selected} className="form-control">{this.props.data.map(mySelectOptions)}</select>
     }
 });
 
@@ -39,6 +39,6 @@ var MySelectOptions = React.createClass({
 
 
 React.render(
-    <MyParent source="/ajax/lookup" />, 
+    <MyParent source="/ajax/lookup" selected="2" />, 
     document.getElementById('dropdown')
 );

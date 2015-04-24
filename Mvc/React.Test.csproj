@@ -144,6 +144,7 @@
     <Content Include="Scripts\Pages\event.counter.js" />
     <Content Include="Scripts\Pages\Event.System.js" />
     <Content Include="Scripts\Pages\flux.test.js" />
+    <Content Include="Scripts\Pages\strict.test.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -162,11 +163,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Flux\Index.cshtml" />
+    <Content Include="Scripts\src\jsx\Dropdown.Ajax.Cascade.jsx" />
+    <Content Include="Scripts\src\jsx\Dropdown.Ajax.Change.Ajax.jsx" />
+    <Content Include="Scripts\src\jsx\Dropdown.Ajax.Change.jsx" />
+    <Content Include="Scripts\src\jsx\Dropdown.Ajax.Simple.jsx" />
+    <Content Include="Scripts\src\jsx\Event.System.Counter.jsx" />
+    <Content Include="Scripts\src\jsx\flux.test.jsx" />
+    <Content Include="Scripts\src\jsx\Hello.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\src\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -207,6 +214,9 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>grunt</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

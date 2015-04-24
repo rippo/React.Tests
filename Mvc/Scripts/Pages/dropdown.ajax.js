@@ -280,31 +280,31 @@ var MyParent = React.createClass({displayName: "MyParent",
 
     getInitialState: function() {
         return {
-            data: []
+            data: [],
         }
     },
 
     componentDidMount: function() {
         $.get(this.props.source, function(result) {
-            this.setState({
-                data: result
-            });
+            this.setState({ data: result});
         }.bind(this));
     },
 
     render: function() {
         return (
-            React.createElement(MySelect, {data: this.state.data})
+            React.createElement(MySelect, {data: this.state.data, selected: this.props.selected})
         )
     }
 });
 
 var MySelect = React.createClass({displayName: "MySelect",
     render: function() {
+        
         var mySelectOptions = function(result) {
             return React.createElement(MySelectOptions, {key: result.id, data: result})
-            };
-        return React.createElement("select", {className: "form-control"}, this.props.data.map(mySelectOptions))
+        };
+
+        return React.createElement("select", {value: this.props.selected, className: "form-control"}, this.props.data.map(mySelectOptions))
     }
 });
 
@@ -317,6 +317,6 @@ var MySelectOptions = React.createClass({displayName: "MySelectOptions",
 
 
 React.render(
-    React.createElement(MyParent, {source: "/ajax/lookup"}), 
+    React.createElement(MyParent, {source: "/ajax/lookup", selected: "2"}), 
     document.getElementById('dropdown')
 );

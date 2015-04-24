@@ -7,16 +7,12 @@ module.exports = function(grunt) {
       //event sub/pub test
       single_file_output: {
         files: {
-          'mvc/scripts/pages/event.counter.js': 'mvc/scripts/src/jsx/Event.System.Counter.jsx'
+          'mvc/scripts/pages/event.counter.js': 'mvc/scripts/src/jsx/Event.System.Counter.jsx',
+          'mvc/scripts/pages/flux.test.js': 'mvc/scripts/src/jsx/flux.test.jsx',
+          'mvc/scripts/pages/strict.test.js': 'mvc/scripts/src/jsx/strict.test.jsx'
         }
       },
 
-      //event sub/pub test
-      single_file_output: {
-        files: {
-          'mvc/scripts/pages/flux.test.js': 'mvc/scripts/src/jsx/flux.test.jsx'
-        }
-      },
 
 
       //Drop down       
