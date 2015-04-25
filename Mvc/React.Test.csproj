@@ -170,6 +170,7 @@
     <Content Include="Scripts\src\jsx\Event.System.Counter.jsx" />
     <Content Include="Scripts\src\jsx\flux.test.jsx" />
     <Content Include="Scripts\src\jsx\Hello.jsx" />
+    <Content Include="Scripts\src\jsx\strict.test.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

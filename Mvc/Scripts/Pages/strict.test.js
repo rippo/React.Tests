@@ -86,9 +86,9 @@ app.components = app.components || {};
         $.ajax({
             url: "/ajax/lookup",
         }).done(function(data) {
-            //setInterval(function () {
+            setInterval(function () {
                 d.resolve(data);
-            //}, 3000);
+            }, 3000);
         });
         
         return d.promise();
