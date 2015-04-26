@@ -88,7 +88,7 @@ app.components = app.components || {};
         }).done(function(data) {
             //setInterval(function () {
                 d.resolve(data);
-            //}, 3000);
+            //-}, 3000);
         });
         
         return d.promise();

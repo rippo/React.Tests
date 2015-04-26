@@ -123,6 +123,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ajax-loader.gif" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -144,7 +145,10 @@
     <Content Include="Scripts\Pages\event.counter.js" />
     <Content Include="Scripts\Pages\Event.System.js" />
     <Content Include="Scripts\Pages\flux.test.js" />
+    <Content Include="Scripts\Pages\mixins.test.for.databinding.js" />
     <Content Include="Scripts\Pages\strict.test.js" />
+    <Content Include="Scripts\react-with-addons.js" />
+    <Content Include="Scripts\react.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -170,6 +174,8 @@
     <Content Include="Scripts\src\jsx\Event.System.Counter.jsx" />
     <Content Include="Scripts\src\jsx\flux.test.jsx" />
     <Content Include="Scripts\src\jsx\Hello.jsx" />
+    <Content Include="Scripts\src\jsx\Mixins.Test.For.Databinding.jsx" />
+    <Content Include="Scripts\src\jsx\strict.test.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
