@@ -174,7 +174,10 @@
     <Content Include="Scripts\src\jsx\Event.System.Counter.jsx" />
     <Content Include="Scripts\src\jsx\flux.test.jsx" />
     <Content Include="Scripts\src\jsx\Hello.jsx" />
+<<<<<<< HEAD
+=======
     <Content Include="Scripts\src\jsx\Mixins.Test.For.Databinding.jsx" />
+>>>>>>> origin/Browserify
     <Content Include="Scripts\src\jsx\strict.test.jsx" />
   </ItemGroup>
   <ItemGroup>
