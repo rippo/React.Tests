@@ -32,12 +32,10 @@ module.exports = function (grunt) {
         },
 
         browserify: {
+            browserifyOptions: {
+                debug: true,
+            },
             main: {
-                options: {
-                    preBundleCB: function (b) {
-                        
-                    }
-                },
                 src: [
                     'mvc/scripts/pages/dropdown.ajax.js',
                     'mvc/scripts/pages/strict.test.js',

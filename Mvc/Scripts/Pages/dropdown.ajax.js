@@ -120,89 +120,91 @@
         document.getElementById('dropdowncascade')
     );
 })();    
-var MyParentChangeAjax = React.createClass({displayName: "MyParentChangeAjax",
+(function() {
+    var MyParentChangeAjax = React.createClass({displayName: "MyParentChangeAjax",
 
-    getInitialState: function() {
-        return {
-            data: [], value: {}, showOutput: false
-        }
-    },
+        getInitialState: function() {
+            return {
+                data: [], value: {}, showOutput: false
+            }
+        },
 
-    componentDidMount: function() {
-        $.get(this.props.source, function(result) {
-            this.setState({
-                data: result
-            });
-        }.bind(this));
-    },
+        componentDidMount: function() {
+            $.get(this.props.source, function(result) {
+                this.setState({
+                    data: result
+                });
+            }.bind(this));
+        },
 
-    render: function() {
-        return (
-            React.createElement("div", {onChange: this.changeHandler}, 
-                React.createElement(MySelectChangeAjax, {data: this.state.data}), 
-                 this.state.showOutput ? React.createElement(MyOutputChangeAjax, {item: this.state.value}) : null
-            )
-        )
-    },
-
-    changeHandler: function(e) {
-
-        $.get("/ajax/AdditionalInfo/" + e.target.value, function(result) {
-            this.setState({ showOutput: true });
-            this.setState({ value: result });
-        }.bind(this))
-        .fail(function() {
-            this.setState({ showOutput: false });
-        }.bind(this));
-    }
-
-});
-
-
-var MyOutputChangeAjax = React.createClass({displayName: "MyOutputChangeAjax",
-    
-    render: function() {
-        return (React.createElement("div", null, 
-                    React.createElement("h3", null, "Output"), 
-                    React.createElement("p", null, 
-                        "Id: ", React.createElement("b", null, this.props.item.id), " -" + ' ' + 
-                        "Drink: ", React.createElement("b", null, this.props.item.drink), " -" + ' ' + 
-                        "Container: ", React.createElement("b", null, this.props.item.container)
-                    )
-                ))
-    }
-
-});
-
-
-var MySelectChangeAjax = React.createClass({displayName: "MySelectChangeAjax",
-
-    render: function() {
-        var mySelectOptions = function(result) {
-            return React.createElement(MySelectOptionsChangeAjax, {
-                        key: result.id, 
-                        data: result})
-            };
-        return (
-                React.createElement("select", {
-                    className: "form-control"}, 
-                    this.props.data.map(mySelectOptions)
+        render: function() {
+            return (
+                React.createElement("div", {onChange: this.changeHandler}, 
+                    React.createElement(MySelectChangeAjax, {data: this.state.data}), 
+                     this.state.showOutput ? React.createElement(MyOutputChangeAjax, {item: this.state.value}) : null
                 )
             )
-    }
-});
+        },
 
-var MySelectOptionsChangeAjax = React.createClass({displayName: "MySelectOptionsChangeAjax",
-    render: function() {
-        return React.createElement("option", {value: this.props.data.id}, this.props.data.value)
-    }
-});
+        changeHandler: function(e) {
+
+            $.get("/ajax/AdditionalInfo/" + e.target.value, function(result) {
+                this.setState({ showOutput: true });
+                this.setState({ value: result });
+            }.bind(this))
+            .fail(function() {
+                this.setState({ showOutput: false });
+            }.bind(this));
+        }
+
+    });
 
 
-React.render(
-    React.createElement(MyParentChangeAjax, {source: "/ajax/lookup"}), 
-    document.getElementById('dropdowngetjson')
-);
+    var MyOutputChangeAjax = React.createClass({displayName: "MyOutputChangeAjax",
+
+        render: function() {
+            return (React.createElement("div", null, 
+                        React.createElement("h3", null, "Output"), 
+                        React.createElement("p", null, 
+                            "Id: ", React.createElement("b", null, this.props.item.id), " -" + ' ' + 
+                            "Drink: ", React.createElement("b", null, this.props.item.drink), " -" + ' ' + 
+                            "Container: ", React.createElement("b", null, this.props.item.container)
+                        )
+                    ))
+        }
+
+    });
+
+
+    var MySelectChangeAjax = React.createClass({displayName: "MySelectChangeAjax",
+
+        render: function() {
+            var mySelectOptions = function(result) {
+                return React.createElement(MySelectOptionsChangeAjax, {
+                            key: result.id, 
+                            data: result})
+                };
+            return (
+                    React.createElement("select", {
+                        className: "form-control"}, 
+                        this.props.data.map(mySelectOptions)
+                    )
+                )
+        }
+    });
+
+    var MySelectOptionsChangeAjax = React.createClass({displayName: "MySelectOptionsChangeAjax",
+        render: function() {
+            return React.createElement("option", {value: this.props.data.id}, this.props.data.value)
+        }
+    });
+
+
+    React.render(
+        React.createElement(MyParentChangeAjax, {source: "/ajax/lookup"}), 
+        document.getElementById('dropdowngetjson')
+    );
+})();
 (function(){
     var MyParentChange = React.createClass({displayName: "MyParentChange",
 
