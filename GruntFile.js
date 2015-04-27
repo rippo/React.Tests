@@ -38,7 +38,11 @@ module.exports = function (grunt) {
                         
                     }
                 },
-                src: 'mvc/scripts/pages/*.js',
+                src: [
+                    'mvc/scripts/pages/dropdown.ajax.js',
+                    'mvc/scripts/pages/strict.test.js',
+                    'mvc/scripts/pages/mixins.test.for.databinding.js'
+                ],
                 dest: 'mvc/scripts/app.js'
             }
         }
